@@ -13,6 +13,7 @@ class MovieDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         centerTitle: true,
         title: const Text('Movie Detail'),
       ),
