@@ -36,7 +36,7 @@ class _TMDBApiService implements TMDBApiService {
     )
         .compose(
           _dio.options,
-          'discover/movie',
+          'discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -49,6 +49,39 @@ class _TMDBApiService implements TMDBApiService {
     late DiscoverMovie _value;
     try {
       _value = DiscoverMovie.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MovieDetail> movieDetail(String movieId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<MovieDetail>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'movie/${movieId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MovieDetail _value;
+    try {
+      _value = MovieDetail.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

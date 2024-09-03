@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie/widget/movie_detail.dart';
+import 'package:flutter_movie/widget/movie_detail_widget.dart';
 
 import '../api/api_service_manager.dart';
 import '../model/discover_movie.dart';
@@ -51,7 +51,7 @@ class MovieDiscoveryWidget extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => MovieDetail(
+                      builder: (context) => MovieDetailWidget(
                             apiServiceManager: apiServiceManager,
                             movieId: movie.id!,
                           )));
