@@ -1,16 +1,14 @@
-# hello_flutter
+# Flutter Movie App
 
-A new Flutter project.
+Flutter movie app using TMDB API.
 
-## Getting Started
+## Libraries uses
 
-This project is a starting point for a Flutter application.
+- [dio](https://pub.dev/packages/dio)
+- [retrofit](https://pub.dev/packages/retrofit)
+- [build_runner](https://pub.dev/packages/build_runner)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![discover_movies.png](screenshot%2Fdiscover_movies.png)
