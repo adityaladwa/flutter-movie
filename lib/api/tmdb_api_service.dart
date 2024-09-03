@@ -15,5 +15,5 @@ abstract class TMDBApiService {
   Future<DiscoverMovie> discoverMovies();
 
   @GET("movie/{movie_id}")
-  Future<MovieDetail> movieDetail(@Path("movie_id") String movieId);
+  Future<MovieDetail> movieDetail(@Path("movie_id") num movieId);
 }

@@ -57,7 +57,7 @@ class _TMDBApiService implements TMDBApiService {
   }
 
   @override
-  Future<MovieDetail> movieDetail(String movieId) async {
+  Future<MovieDetail> movieDetail(num movieId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
