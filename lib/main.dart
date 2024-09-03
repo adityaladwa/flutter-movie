@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'api/api_service_manager.dart';
 import 'model/discover_movie.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: "keys.env");
   runApp(MyApp());
 }
 

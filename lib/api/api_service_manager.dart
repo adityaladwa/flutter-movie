@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie/api/tmdb_api_service.dart';
 
 class ApiServiceManager {
-  static const String TMDB_API_KEY =
-      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2NiZGU0YWI0NzRjNzFmMjNlYTcwN2U0NTRlNGI2NCIsIm5iZiI6MTcyNDc3NzAwMy40NzQ4MTcsInN1YiI6IjU2YjFkNmM1OTI1MTQxMjZjYzAwMWVmOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.81ZQRFABlEpdYmuk2ocx95UMcwy6M6sJR52SUgaiV5E";
+  final String TMDB_API_KEY = dotenv.env['TMDB_API_KEY']!;
+
   late final Dio _dio;
   late final TMDBApiService _tmdbApiService;
 
