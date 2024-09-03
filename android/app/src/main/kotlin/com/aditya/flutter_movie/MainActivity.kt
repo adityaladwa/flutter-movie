@@ -1,4 +1,4 @@
-package com.aditya.hello_flutter
+package com.aditya.flutter_movie
 
 import io.flutter.embedding.android.FlutterActivity
 
