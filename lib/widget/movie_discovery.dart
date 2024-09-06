@@ -29,17 +29,31 @@ class MovieDiscoveryWidget extends StatelessWidget {
               child: Text("Error ${snapshot.error}"),
             );
           } else {
-            return MovieDiscoveryGrid(snapshot.data!);
+            return MovieDiscoveryGrid(
+                discoverMovie: snapshot.data!,
+                apiServiceManager: apiServiceManager);
           }
         },
       ),
     );
   }
+}
 
-  Widget MovieDiscoveryGrid(DiscoverMovie discoverMovie) {
+class MovieDiscoveryGrid extends StatelessWidget {
+  final DiscoverMovie discoverMovie;
+  final ApiServiceManager apiServiceManager;
+
+  const MovieDiscoveryGrid(
+      {super.key,
+      required this.discoverMovie,
+      required this.apiServiceManager});
+
+  @override
+  Widget build(BuildContext context) {
     return GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 150,
+          childAspectRatio: 2 / 3,
         ),
         itemCount: discoverMovie.results?.length,
         itemBuilder: (context, index) {
