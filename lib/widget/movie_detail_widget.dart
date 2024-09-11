@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie/api/api_service_manager.dart';
 import 'package:flutter_movie/model/movie_detail.dart';
@@ -49,8 +50,9 @@ class MovieDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-          'https://image.tmdb.org/t/p/w500${movieDetail.backdropPath}',
+        CachedNetworkImage(
+          imageUrl:
+              'https://image.tmdb.org/t/p/w500${movieDetail.backdropPath}',
           fit: BoxFit.cover,
           width: double.infinity,
           height: 300,

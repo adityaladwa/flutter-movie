@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie/widget/movie_detail_widget.dart';
 
@@ -59,7 +60,7 @@ class MovieDiscoveryGrid extends StatelessWidget {
         itemBuilder: (context, index) {
           final movie = discoverMovie.results![index];
           final imageUrl =
-              "https://image.tmdb.org/t/p/w500/${movie.posterPath}";
+              "https://image.tmdb.org/t/p/w200/${movie.posterPath}";
           return GestureDetector(
             onTap: () {
               Navigator.push(
@@ -70,8 +71,8 @@ class MovieDiscoveryGrid extends StatelessWidget {
                             movieId: movie.id!,
                           )));
             },
-            child: Image.network(
-              imageUrl,
+            child: CachedNetworkImage(
+              imageUrl: imageUrl,
               fit: BoxFit.cover,
             ),
           );
